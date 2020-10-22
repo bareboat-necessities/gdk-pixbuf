@@ -1,4 +1,4 @@
-gdk-pixbuf (2.40.0+dfsg-5) unstable; urgency=medium
+gdk-pixbuf (2.40.1a+dfsg-5) unstable; urgency=medium
 
   * rules: Don't mangle PNGs in gdk-pixbuf-tests (for Ubuntu)
 
