@@ -47,7 +47,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec mes
  libcairo2-doc \
  xsltproc
 
-docker exec -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
+docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
 
 find dist -name \*.deb
