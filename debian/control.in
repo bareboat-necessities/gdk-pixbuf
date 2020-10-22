@@ -86,21 +86,6 @@ Description: GDK Pixbuf library (development files)
  .
  This package contains the header files which are needed for using GDK Pixbuf.
 
-Package: libgdk-pixbuf2.0-doc
-Section: doc
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Build-Profiles: <!nodoc>
-Description: GDK Pixbuf library (documentation)
- The GDK Pixbuf library provides:
-  - Image loading and saving facilities.
-  - Fast scaling and compositing of pixbufs.
-  - Simple animation loading (ie. animated GIFs)
- .
- This package contains the HTML documentation for the GDK Pixbuf library
- in /usr/share/doc/libgtk2.0-doc/ .
-
 Package: libgdk-pixbuf2.0-0-udeb
 Package-Type: udeb
 Section: debian-installer
