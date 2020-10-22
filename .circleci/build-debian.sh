@@ -33,7 +33,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec mes
  fonts-cantarell \
  gnome-pkg-tools \
  gobject-introspection \
- gtk-doc-tools \
  libcolord-dev \
  libcups2-dev \
  libgdk-pixbuf2.0-dev \
