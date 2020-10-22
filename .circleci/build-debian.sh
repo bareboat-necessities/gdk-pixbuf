@@ -42,6 +42,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec mes
  libxkbfile-dev \
  sassc \
  xvfb \
+ gtk-doc-tools \
  libglib2.0-doc \
  libcairo2-doc \
  xsltproc
