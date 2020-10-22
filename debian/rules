@@ -66,9 +66,6 @@ override_dh_install:
 override_dh_makeshlibs:
 	dh_makeshlibs --add-udeb=libgdk-pixbuf2.0-0-udeb -X "/usr/lib/$(DEB_HOST_MULTIARCH)/gdk-pixbuf-2.0" -V -- -c4
 
-override_dh_missing:
-	dh_missing --fail-missing
-
 override_dh_clean:
 	dh_clean
 	set -e; for file in $(infiles); do \
