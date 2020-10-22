@@ -6,7 +6,7 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
 include /usr/share/dpkg/architecture.mk
 
 ifneq (,$(filter libgdk-pixbuf2.0-doc,$(shell dh_listpackages)))
-  BUILD_DOCS:=-Ddocs=false
+  BUILD_DOCS:=-Ddocs=true
 else
   BUILD_DOCS:=-Ddocs=false
 endif
@@ -17,7 +17,7 @@ endif
 override_dh_auto_configure:
 	dh_auto_configure -- \
 		$(BUILD_DOCS) \
-		-Dinstalled_tests=false
+		-Dinstalled_tests=true
 
 # temporary directory for the minimal MIME cache generation
 mimedir := debian/build-mime
