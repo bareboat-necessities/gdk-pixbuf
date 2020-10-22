@@ -41,6 +41,21 @@ Description: GDK Pixbuf library
   - Fast scaling and compositing of pixbufs.
   - Simple animation loading (ie. animated GIFs)
 
+Package: libgdk-pixbuf2.0-bin
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: foreign
+Replaces: libgdk-pixbuf2.0-dev (<< 2.36.12-2~)
+Breaks: libgdk-pixbuf2.0-dev (<< 2.36.12-2~)
+Description: GDK Pixbuf library (thumbnailer)
+ The GDK Pixbuf library provides:
+  - Image loading and saving facilities.
+  - Fast scaling and compositing of pixbufs.
+  - Simple animation loading (ie. animated GIFs)
+ .
+ This package contains the GDK pixdata compression utility, the thumbnailer
+ and a utility for converting images into C code.
+
 Package: libgdk-pixbuf2.0-common
 Architecture: all
 Depends: ${misc:Depends}
@@ -70,6 +85,21 @@ Description: GDK Pixbuf library (development files)
   - Simple animation loading (ie. animated GIFs)
  .
  This package contains the header files which are needed for using GDK Pixbuf.
+
+Package: libgdk-pixbuf2.0-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Build-Profiles: <!nodoc>
+Description: GDK Pixbuf library (documentation)
+ The GDK Pixbuf library provides:
+  - Image loading and saving facilities.
+  - Fast scaling and compositing of pixbufs.
+  - Simple animation loading (ie. animated GIFs)
+ .
+ This package contains the HTML documentation for the GDK Pixbuf library
+ in /usr/share/doc/libgtk2.0-doc/ .
 
 Package: libgdk-pixbuf2.0-0-udeb
 Package-Type: udeb
