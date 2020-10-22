@@ -1,0 +1,23 @@
+From: Ross Burton <ross.burton@intel.com>
+Date: Mon, 25 Nov 2019 17:05:46 +0000
+Subject: tests: install circular-table.gif
+
+This test data was added for the pixbuf-gif-circular-table test (added October
+2018 in 0b9d004) but because the file was never actually installed the installed
+test suite never passes.
+---
+ tests/meson.build | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tests/meson.build b/tests/meson.build
+index cf12dff..1a891c5 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -96,6 +96,7 @@ test_data = [
+   'bug775693.pixdata',
+   'bug775229.pixdata',
+   'aero.gif',
++  'circular-table.gif'
+ ]
+ 
+ installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', meson.project_name())
