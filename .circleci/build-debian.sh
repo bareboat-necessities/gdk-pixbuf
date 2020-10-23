@@ -27,7 +27,6 @@ docker run --privileged -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IM
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get update
-docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec meson cmake \
  at-spi2-core \
  dh-sequence-gir \
@@ -48,6 +47,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec mes
  libcairo2-doc \
  man \
  xsltproc
+docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
