@@ -11,9 +11,9 @@ commands:
   git-checkout:
     steps:
       - run:
+          command: git clone ${GIT_OPTIONS}
           environment:
             - GIT_OPTIONS=-b debian/2.40.0+dfsg-5 https://salsa.debian.org/gnome-team/gdk-pixbuf.git
-          command: git clone ${GIT_OPTIONS}
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
