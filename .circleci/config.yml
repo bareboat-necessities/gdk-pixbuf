@@ -8,9 +8,11 @@ executors:
       enabled: true
       image: ubuntu-2004:202010-01
 commands:
+  git-checkout:
+    steps:
+      - run: git clone ${GIT_OPTIONS}
   build-n-publish-debian:
     steps:
-      - checkout
       - run: sudo apt-get -y install debhelper
       - run: chmod a+x .circleci/*.sh
       - run:
@@ -24,31 +26,37 @@ jobs:
   build-debian-buster-arm64:
     executor: boot-linux
     environment:
+      - GIT_OPTIONS=-b debian/2.40.0+dfsg-5 https://salsa.debian.org/gnome-team/gdk-pixbuf.git
       - DOCKER_IMAGE=arm64v8/debian:buster
       - CONTAINER_DISTRO=debian:buster
       - PKG_TYPE=deb
       - PKG_DISTRO=debian/buster
       - EMU=on
     steps:
+      - git-checkout
       - build-n-publish-debian
   build-debian-buster-arm32:
     executor: boot-linux
     environment:
+      - GIT_OPTIONS=-b debian/2.40.0+dfsg-5 https://salsa.debian.org/gnome-team/gdk-pixbuf.git
       - DOCKER_IMAGE=arm32v7/debian:buster
       - CONTAINER_DISTRO=debian:buster
       - PKG_TYPE=deb
       - PKG_DISTRO=debian/buster
       - EMU=on
     steps:
+      - git-checkout
       - build-n-publish-debian
   build-debian-buster-amd64:
     executor: boot-linux
     environment:
+      - GIT_OPTIONS=-b debian/2.40.0+dfsg-5 https://salsa.debian.org/gnome-team/gdk-pixbuf.git
       - DOCKER_IMAGE=amd64/debian:buster
       - CONTAINER_DISTRO=debian:buster
       - PKG_TYPE=deb
       - PKG_DISTRO=debian/buster
     steps:
+      - git-checkout
       - build-n-publish-debian
 workflows:
   version: 2

@@ -1,4 +1,0 @@
-#!/usr/bin/dh-exec
-usr/bin/gdk-pixbuf-query-loaders /usr/lib/${DEB_HOST_MULTIARCH}/gdk-pixbuf-2.0
-usr/lib/*/*.so.*
-usr/lib/*/gdk-pixbuf-2.0/2.10.0/loaders/*.so
