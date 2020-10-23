@@ -63,6 +63,9 @@ override_dh_install:
 		> debian/libgdk-pixbuf2.0-0-udeb/usr/lib/$(DEB_HOST_MULTIARCH)/gdk-pixbuf-2.0/2.10.0/loaders.cache
 	chmod 0644 debian/libgdk-pixbuf2.0-0-udeb/usr/lib/$(DEB_HOST_MULTIARCH)/gdk-pixbuf-2.0/2.10.0/loaders.cache
 
+override_dh_installman:
+	echo "skipping man pages"
+
 override_dh_makeshlibs:
 	dh_makeshlibs --add-udeb=libgdk-pixbuf2.0-0-udeb -X "/usr/lib/$(DEB_HOST_MULTIARCH)/gdk-pixbuf-2.0" -V -- -c4
 
