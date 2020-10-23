@@ -11,7 +11,7 @@ commands:
   git-checkout:
     steps:
       - run: git clone -b "debian/2.40.0+dfsg-5" https://salsa.debian.org/gnome-team/gdk-pixbuf.git
-      - run: mkdir ci; cd ci; git clone https://github.com/bareboat-necessities/gdk-pixbuf.git; cd ..
+      - run: wget -nc -O - https://github.com/bareboat-necessities/gtk/archive/gtk-3-24.zip | gunzip -
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
