@@ -11,6 +11,7 @@ commands:
   git-checkout:
     steps:
       - run: git clone -b "debian/2.40.0+dfsg-5" https://salsa.debian.org/gnome-team/gdk-pixbuf.git
+      checkout
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
