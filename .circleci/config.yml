@@ -10,7 +10,7 @@ executors:
 commands:
   git-checkout:
     steps:
-      - run: git clone -b debian/2.40.0+dfsg-5 https://salsa.debian.org/gnome-team/gdk-pixbuf.git
+      - run: git clone -b "debian/2.40.0+dfsg-5" https://salsa.debian.org/gnome-team/gdk-pixbuf.git
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
