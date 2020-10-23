@@ -17,8 +17,7 @@ if [ "$EMU" = "on" ]; then
   if [ "$CONTAINER_DISTRO" = "raspbian" ]; then
       docker run --rm --privileged multiarch/qemu-user-static:register --reset
   else
-      #docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-      docker run --rm --privileged multiarch/qemu-user-static:register --reset
+      docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   fi
 fi
 
