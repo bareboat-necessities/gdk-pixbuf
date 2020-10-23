@@ -37,9 +37,9 @@ jobs:
   build-raspbian-buster-arm32:
     executor: boot-linux
     environment:
-      - DOCKER_IMAGE=navikey/raspbian-buster:latest
-      - CONTAINER_DISTRO=raspbian
-      - PKG_DISTRO=raspbian/buster
+      - DOCKER_IMAGE=arm32v7/debian:buster
+      - CONTAINER_DISTRO=debian:buster
+      - PKG_DISTRO=debian/buster
       - EMU=on
     steps:
       - git-checkout
