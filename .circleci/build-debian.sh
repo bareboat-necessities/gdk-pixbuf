@@ -27,26 +27,50 @@ docker run --privileged -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IM
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get update
-docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake \
- at-spi2-core \
- dh-sequence-gir \
- fonts-cantarell \
- gnome-pkg-tools \
- gobject-introspection \
- libcolord-dev \
- libcups2-dev \
- libgdk-pixbuf2.0-dev \
- libgirepository1.0-dev \
- libjson-glib-dev \
- librest-dev \
- libxkbfile-dev \
- sassc \
- xvfb \
- gtk-doc-tools \
- libglib2.0-doc \
- libcairo2-doc \
- man \
- xsltproc
+docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake man \
+    at-spi2-core                      \
+    dh-sequence-gir                   \
+    fonts-cantarell                   \
+    gnome-pkg-tools                   \
+    gobject-introspection             \
+    libcolord-dev                     \
+    libcups2-dev                      \
+    libgdk-pixbuf2.0-dev              \
+    libgirepository1.0-dev            \
+    libjson-glib-dev                  \
+    librest-dev                       \
+    libxkbfile-dev                    \
+    sassc                             \
+    xvfb                              \
+    gtk-doc-tools                     \
+    libglib2.0-doc                    \
+    libcairo2-doc                     \
+    xsltproc                          \
+    libglib2.0-doc                    \
+    libatk-bridge2.0-dev              \
+    libatk1.0-dev                     \
+    libcairo2-dev                     \
+    libegl1-mesa-dev                  \
+    libepoxy-dev                      \
+    libfontconfig1-dev                \
+    libfribidi-dev                    \
+    libharfbuzz-dev                   \
+    libpango1.0-dev                   \
+    libwayland-dev                    \
+    libxcomposite-dev                 \
+    libxcursor-dev                    \
+    libxdamage-dev                    \
+    libxext-dev                       \
+    libxfixes-dev                     \
+    libxi-dev                         \
+    libxinerama-dev                   \
+    libxkbcommon-dev                  \
+    libxml2-utils                     \
+    libxrandr-dev                     \
+    wayland-protocols                 \
+    libatk1.0-doc                     \
+    libpango1.0-doc
+
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
