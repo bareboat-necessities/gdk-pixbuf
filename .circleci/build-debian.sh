@@ -71,7 +71,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     libatk1.0-doc                     \
     libpango1.0-doc
 
-docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
+#docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
