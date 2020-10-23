@@ -37,7 +37,7 @@ jobs:
   build-raspbian-buster-arm32:
     executor: boot-linux
     environment:
-      - DOCKER_IMAGE=jongough/raspbian-buster:plugin_build_tooling_current
+      - DOCKER_IMAGE=navikey/raspbian-buster:latest
       - CONTAINER_DISTRO=raspbian
       - PKG_DISTRO=raspbian/buster
       - EMU=on
