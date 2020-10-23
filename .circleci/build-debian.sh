@@ -69,6 +69,10 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     libxrandr-dev                     \
     wayland-protocols                 \
     libatk1.0-doc                     \
+    libc6                             \
+    libglib2.0-0                      \
+    libjson-glib-1.0-0                \
+    libxcomposite1                    \
     libpango1.0-doc
 
 #docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
