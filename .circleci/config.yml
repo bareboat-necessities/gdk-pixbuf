@@ -39,7 +39,7 @@ jobs:
     environment:
       - DOCKER_IMAGE=jongough/raspbian-buster:plugin_build_tooling_current
       - CONTAINER_DISTRO=raspbian
-      - PKG_DISTRO=debian/buster
+      - PKG_DISTRO=raspbian/buster
       - EMU=on
     steps:
       - git-checkout
