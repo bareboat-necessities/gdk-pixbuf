@@ -47,7 +47,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
  libcairo2-doc \
  man \
  xsltproc
-docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get upgrade
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
