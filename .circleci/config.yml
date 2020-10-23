@@ -34,11 +34,11 @@ jobs:
     steps:
       - git-checkout
       - build-n-publish-debian
-  build-debian-buster-arm32:
+  build-raspbian-buster-arm32:
     executor: boot-linux
     environment:
-      - DOCKER_IMAGE=arm32v7/debian:buster
-      - CONTAINER_DISTRO=debian:buster
+      - DOCKER_IMAGE=jongough/raspbian-buster:plugin_build_tooling_current
+      - CONTAINER_DISTRO=raspbian
       - PKG_DISTRO=debian/buster
       - EMU=on
     steps:
@@ -58,5 +58,5 @@ workflows:
   build_all:
     jobs:
       - build-debian-buster-arm64
-      - build-debian-buster-arm32
+      - build-raspbian-buster-arm32
       - build-debian-buster-amd64
