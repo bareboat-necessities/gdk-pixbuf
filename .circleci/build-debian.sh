@@ -45,6 +45,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dh-exec mes
  gtk-doc-tools \
  libglib2.0-doc \
  libcairo2-doc \
+ man \
  xsltproc
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
