@@ -24,7 +24,7 @@ commands:
       - cloudsmith/install-cli
       - run: .circleci/publish-cloudsmith.sh deb bbn-projects/bbn-repo ${PKG_DISTRO}/${PKG_RELEASE}
   do-all:
-    step:
+    steps:
       - git-checkout
       - build-n-publish-debian
 jobs:
