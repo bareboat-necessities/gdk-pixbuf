@@ -75,7 +75,7 @@ docker exec -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec 
     libxcomposite1                    \
     libpango1.0-doc
 
-docker exec -ti $DOCKER_CONTAINER_ID apt-get upgrade
+docker exec -ti $DOCKER_CONTAINER_ID apt-get -y upgrade
 docker exec -ti $DOCKER_CONTAINER_ID ldconfig
 
 docker exec -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
