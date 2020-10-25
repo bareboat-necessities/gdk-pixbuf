@@ -64,6 +64,7 @@ jobs:
       - PKG_DISTRO=debian/bullseye
       - EMU=on
     steps:
+      - git-checkout
       - build-n-publish-debian
   build-debian-bullseye-arm32:
     executor: boot-linux
@@ -74,6 +75,7 @@ jobs:
       - PKG_DISTRO=debian/bullseye
       - EMU=on
     steps:
+      - git-checkout
       - build-n-publish-debian
   build-debian-bullseye-amd64:
     executor: boot-linux
@@ -83,6 +85,7 @@ jobs:
       - PKG_TYPE=deb
       - PKG_DISTRO=debian/bullseye
     steps:
+      - git-checkout
       - build-n-publish-debian
 workflows:
   version: 2
