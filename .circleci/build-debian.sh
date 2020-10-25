@@ -17,13 +17,13 @@ if [ "$EMU" = "on" ]; then
   if [ "$CONTAINER_DISTRO" = "raspbian" ]; then
       docker run --rm --privileged multiarch/qemu-user-static:register --reset
   else
-      docker run --rm --privileged multiarch/qemu-user-static --reset --credential yes --persistent yes
+      docker run --rm --privileged multiarch/qemu-user-static --reset --security-opt="seccomp=unconfined" --credential yes --persistent yes
   fi
 fi
 
 WORK_DIR=$(pwd):/ci-source
 
-docker run --privileged -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IMAGE /bin/bash
+docker run --privileged --security-opt="seccomp=unconfined" -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IMAGE /bin/bash
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
 docker exec -ti $DOCKER_CONTAINER_ID apt-get update
@@ -82,8 +82,6 @@ docker exec -ti $DOCKER_CONTAINER_ID ldconfig
 docker exec -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j4; " \
     "mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
-
-find dist -name \*.deb
 
 echo "Stopping"
 docker ps -a
