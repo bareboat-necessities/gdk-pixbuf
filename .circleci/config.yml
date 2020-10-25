@@ -15,8 +15,6 @@ commands:
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
-      - run: pwd
-      - run: ls
       - run: chmod a+x .circleci/*.sh
       - run:
           command: |
