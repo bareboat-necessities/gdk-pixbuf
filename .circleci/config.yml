@@ -43,7 +43,6 @@ jobs:
     environment:
       - DOCKER_IMAGE=arm32v7/debian:buster
       - CONTAINER_DISTRO=debian:buster
-      - PKG_TYPE=deb
       - PKG_RELEASE=buster
       - PKG_DISTRO=debian
       - EMU=on
@@ -55,7 +54,6 @@ jobs:
     environment:
       - DOCKER_IMAGE=amd64/debian:buster
       - CONTAINER_DISTRO=debian:buster
-      - PKG_TYPE=deb
       - PKG_RELEASE=buster
       - PKG_DISTRO=debian
     steps:
@@ -66,7 +64,6 @@ jobs:
     environment:
       - DOCKER_IMAGE=arm64v8/debian:bullseye
       - CONTAINER_DISTRO=debian:bullseye
-      - PKG_TYPE=deb
       - PKG_RELEASE=bullseye
       - PKG_DISTRO=debian
       - EMU=on
@@ -78,7 +75,6 @@ jobs:
     environment:
       - DOCKER_IMAGE=arm32v7/debian:bullseye
       - CONTAINER_DISTRO=debian:bullseye
-      - PKG_TYPE=deb
       - PKG_RELEASE=bullseye
       - PKG_DISTRO=debian
       - EMU=on
@@ -90,7 +86,6 @@ jobs:
     environment:
       - DOCKER_IMAGE=amd64/debian:bullseye
       - CONTAINER_DISTRO=debian:bullseye
-      - PKG_TYPE=deb
       - PKG_RELEASE=bullseye
       - PKG_DISTRO=debian
     steps:
