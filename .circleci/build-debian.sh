@@ -88,7 +88,6 @@ ls
 ls ..
 ls /
 ls $ORIG_DIR
-ls $ORIG_DIR:/ci-source
 
 echo "Stopping"
 docker ps -a
