@@ -27,7 +27,7 @@ docker run --privileged -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IM
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
 docker exec -ti $DOCKER_CONTAINER_ID apt-get update
-docker exec -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake man \
+docker exec -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake man-db \
     at-spi2-core                      \
     dh-sequence-gir                   \
     fonts-cantarell                   \
