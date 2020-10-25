@@ -21,7 +21,6 @@ if [ "$EMU" = "on" ]; then
   fi
 fi
 
-ORIG_DIR=$(pwd)
 WORK_DIR=$(pwd):/ci-source
 
 docker run --privileged --security-opt="seccomp=unconfined" -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IMAGE /bin/bash
