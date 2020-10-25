@@ -27,6 +27,7 @@ docker run --privileged -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IM
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
 docker exec -ti $DOCKER_CONTAINER_ID apt-get update
+docker exec -ti $DOCKER_CONTAINER_ID apt-get -y install dpkg-dev debhelper devscripts equivs pkg-config apt-utils fakeroot
 docker exec -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake man-db \
     at-spi2-core                      \
     dh-sequence-gir                   \
@@ -79,7 +80,8 @@ docker exec -ti $DOCKER_CONTAINER_ID apt-get -y upgrade
 docker exec -ti $DOCKER_CONTAINER_ID ldconfig
 
 docker exec -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
-    "cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
+    "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j4; " \
+    "mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
 
 find dist -name \*.deb
 
