@@ -53,6 +53,35 @@ jobs:
     steps:
       - git-checkout
       - build-n-publish-debian
+  build-debian-bullseye-arm64:
+    executor: boot-linux
+    environment:
+      - DOCKER_IMAGE=arm64v8/debian:bullseye
+      - CONTAINER_DISTRO=debian:bullseye
+      - PKG_TYPE=deb
+      - PKG_DISTRO=debian/bullseye
+      - EMU=on
+    steps:
+      - build-n-publish-debian
+  build-debian-bullseye-arm32:
+    executor: boot-linux
+    environment:
+      - DOCKER_IMAGE=arm32v7/debian:bullseye
+      - CONTAINER_DISTRO=debian:bullseye
+      - PKG_TYPE=deb
+      - PKG_DISTRO=debian/bullseye
+      - EMU=on
+    steps:
+      - build-n-publish-debian
+  build-debian-bullseye-amd64:
+    executor: boot-linux
+    environment:
+      - DOCKER_IMAGE=amd64/debian:bullseye
+      - CONTAINER_DISTRO=debian:bullseye
+      - PKG_TYPE=deb
+      - PKG_DISTRO=debian/bullseye
+    steps:
+      - build-n-publish-debian
 workflows:
   version: 2
   build_all:
@@ -60,3 +89,6 @@ workflows:
       - build-debian-buster-arm64
       - build-debian-buster-arm32
       - build-debian-buster-amd64
+      - build-debian-bullseye-arm64
+      - build-debian-bullseye-arm32
+      - build-debian-bullseye-amd64
