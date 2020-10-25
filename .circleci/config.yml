@@ -23,6 +23,10 @@ commands:
       - cloudsmith/ensure-api-key
       - cloudsmith/install-cli
       - run: .circleci/publish-cloudsmith.sh deb bbn-projects/bbn-repo ${PKG_DISTRO}/${PKG_RELEASE}
+  do-all:
+    step:
+      - git-checkout
+      - build-n-publish-debian
 jobs:
   build-debian-buster-arm64:
     executor: boot-linux
@@ -33,8 +37,7 @@ jobs:
       - PKG_DISTRO=debian
       - EMU=on
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
   build-debian-buster-arm32:
     executor: boot-linux
     environment:
@@ -44,8 +47,7 @@ jobs:
       - PKG_DISTRO=debian
       - EMU=on
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
   build-debian-buster-amd64:
     executor: boot-linux
     environment:
@@ -54,8 +56,7 @@ jobs:
       - PKG_RELEASE=buster
       - PKG_DISTRO=debian
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
   build-debian-bullseye-arm64:
     executor: boot-linux
     environment:
@@ -65,8 +66,7 @@ jobs:
       - PKG_DISTRO=debian
       - EMU=on
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
   build-debian-bullseye-arm32:
     executor: boot-linux
     environment:
@@ -76,8 +76,7 @@ jobs:
       - PKG_DISTRO=debian
       - EMU=on
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
   build-debian-bullseye-amd64:
     executor: boot-linux
     environment:
@@ -86,8 +85,7 @@ jobs:
       - PKG_RELEASE=bullseye
       - PKG_DISTRO=debian
     steps:
-      - git-checkout
-      - build-n-publish-debian
+      - do-all
 workflows:
   version: 2
   build_all:
