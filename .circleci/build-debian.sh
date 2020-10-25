@@ -83,7 +83,7 @@ docker exec -ti $DOCKER_CONTAINER_ID ldconfig
 docker exec -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j4; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
 
-find dist \*.\*$EXT
+find dist -name \*.\*$EXT
 
 echo "Stopping"
 docker ps -a
