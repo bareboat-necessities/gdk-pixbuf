@@ -74,6 +74,9 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     libglib2.0-0                      \
     libjson-glib-1.0-0                \
     libxcomposite1                    \
+    libpng16-16                       \
+    libpng-dev                        \
+    libpng-tools                      \
     libpango1.0-doc
 
 #docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y upgrade
