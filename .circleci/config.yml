@@ -43,7 +43,7 @@ jobs:
     steps:
       - do-all
   build-debian-buster-arm32:
-    executor: boot-linux2
+    executor: boot-linux
     environment:
       - DOCKER_IMAGE=arm32v7/debian:buster
       - CONTAINER_DISTRO=debian:buster
@@ -91,7 +91,7 @@ jobs:
     steps:
       - do-all
   build-raspbian-buster-arm32:
-    executor: boot-linux2
+    executor: boot-linux
     environment:
       - DOCKER_IMAGE=arm32v7/debian:buster
       - CONTAINER_DISTRO=debian:buster
@@ -114,11 +114,11 @@ workflows:
   version: 2
   build_all:
     jobs:
-      - build-debian-buster-arm64
       - build-debian-buster-arm32
-      - build-debian-buster-amd64
       - build-raspbian-buster-arm32
-      - build-raspbian-buster-arm64
+#      - build-debian-buster-arm64
+#      - build-debian-buster-amd64
+#      - build-raspbian-buster-arm64
 #      - build-debian-bullseye-arm64
 #      - build-debian-bullseye-arm32
 #      - build-debian-bullseye-amd64
