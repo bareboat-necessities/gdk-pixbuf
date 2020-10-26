@@ -26,6 +26,8 @@ WORK_DIR=$(pwd):/ci-source
 docker run --privileged --security-opt="seccomp=unconfined" --cap-add=ALL -d -ti -e "container=docker"  -v $WORK_DIR:rw $DOCKER_IMAGE /bin/bash
 DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print $1}')
 
+docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install libglib2.0-doc libglib2.0-0
+
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get update
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dpkg-dev debhelper devscripts equivs pkg-config apt-utils fakeroot
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essential dh-exec meson cmake man-db \
@@ -46,7 +48,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     gtk-doc-tools                     \
     libcairo2-doc                     \
     xsltproc                          \
-    libglib2.0-doc                    \
     libatk-bridge2.0-dev              \
     libatk1.0-dev                     \
     libcairo2-dev                     \
@@ -70,7 +71,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     wayland-protocols                 \
     libatk1.0-doc                     \
     libc6                             \
-    libglib2.0-0                      \
     libjson-glib-1.0-0                \
     libxcomposite1                    \
     libpango1.0-doc
