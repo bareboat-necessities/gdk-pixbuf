@@ -44,7 +44,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     sassc                             \
     xvfb                              \
     gtk-doc-tools                     \
-    libglib2.0-doc                    \
     libcairo2-doc                     \
     xsltproc                          \
     libglib2.0-doc                    \

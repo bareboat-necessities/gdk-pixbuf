@@ -45,7 +45,7 @@ jobs:
   build-debian-buster-arm32:
     executor: boot-linux
     environment:
-      - DOCKER_IMAGE=arm32v7/debian:buster
+      - DOCKER_IMAGE=arm32v7/debian:buster-backports
       - CONTAINER_DISTRO=debian:buster
       - PKG_RELEASE=buster
       - PKG_DISTRO=debian
@@ -93,7 +93,7 @@ jobs:
   build-raspbian-buster-arm32:
     executor: boot-linux
     environment:
-      - DOCKER_IMAGE=arm32v7/debian:buster
+      - DOCKER_IMAGE=arm32v7/debian:buster-backports
       - CONTAINER_DISTRO=debian:buster
       - PKG_RELEASE=raspbian
       - PKG_DISTRO=buster
