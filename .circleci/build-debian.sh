@@ -83,6 +83,9 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
 docker exec --privileged -ti $DOCKER_CONTAINER_ID ldconfig
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
+    "mkdir PNG; cd PNG; wget https://github.com/glennrp/libpng/archive/v1.6.37.tar.gz; gzip -cd v1.6.37.tar.gz | tar xvf -; cd libpng-1.6.37/; ./configure --prefix=/usr; make -j2; make install; cd ../../"
+
+docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j1; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
 
 find dist -name \*.\*$EXT
