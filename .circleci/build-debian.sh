@@ -78,7 +78,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "mkdir PNG; cd PNG; wget http://deb.debian.org/debian/pool/main/libp/libpng1.6/libpng1.6_1.6.37.orig.tar.gz; gzip -cd < libpng1.6_1.6.37.orig.tar.gz | tar xvf -; cd libpng-1.6.37/; wget http://deb.debian.org/debian/pool/main/libp/libpng1.6/libpng1.6_1.6.37-3.debian.tar.xz; xzcat libpng1.6_1.6.37-3.debian.tar.xz | tar xvf -; dpkg-buildpackage -b -uc -us -j2; dpkg -i ../*.deb; cd ../../"
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
-    "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; DEB_XDG_DATA_DIRS_SET=\".../usr/share\" XDG_DATA_DIRS=\".../usr/share\" dpkg-buildpackage -b -uc -us -j3; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
+    "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j3; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
 
 find dist -name \*.\*$EXT
 
