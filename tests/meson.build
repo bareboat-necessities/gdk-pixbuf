@@ -62,65 +62,71 @@ endif
 #  - io: Loading/saving
 #  - ops: Pixel operations
 installed_tests = {
-  'pixbuf-construction': { 'suites': ['conform'], },
+  'pixbuf-construction': { 'suites': ['conform'], 'skip': true, },
   'animation': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
+    'skip': true,
   },
   'cve-2015-4491': {
     'suites': ['security'],
     'needs_resources': true,
-    'skip': no_resources,
+    'skip': true,
   },
-  'pixbuf-fail': { 'suites': ['conform', 'slow'], },
-  'pixbuf-icon-serialize': { 'suites': ['conform'], },
-  'pixbuf-randomly-modified': { 'suites': ['slow'], },
-  'pixbuf-threads': { 'suites': ['io'], },
+  'pixbuf-fail': { 'suites': ['conform', 'slow'], 'skip': true, },
+  'pixbuf-icon-serialize': { 'suites': ['conform'], 'skip': true, },
+  'pixbuf-randomly-modified': { 'suites': ['slow'], 'skip': true, },
+  'pixbuf-threads': { 'suites': ['io'], 'skip': true, },
   'pixbuf-gif': {
     'suites': ['io'],
-    'skip': not enabled_loaders.contains('gif'),
+    'skip': true,
   },
   'pixbuf-icc': {
     'suites': ['io'],
+    'skip': true,
   },
   'pixbuf-jpeg': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('jpeg'),
+    'skip': true,
   },
   'pixbuf-dpi': {
     'suites': ['io'],
+    'skip': true,
   },
   'pixbuf-pixdata': {
     'suites': ['format'],
     'needs_resources': true,
-    'skip': no_resources,
+    'skip': true,
   },
-  'pixbuf-stream': { 'suites': ['io'], },
+  'pixbuf-stream': { 'suites': ['io'], 'skip': true, },
   'pixbuf-reftest': {
     'suites': ['conform'],
+    'skip': true,
   },
   'pixbuf-resource': {
     'suites': ['io'],
     'needs_resources': true,
-    'skip': no_resources,
+    'skip': true,
   },
-  'pixbuf-scale': { 'suites': ['ops'], },
-  'pixbuf-scale-two-step': { 'suites': ['ops'], },
+  'pixbuf-scale': { 'suites': ['ops'], 'skip': true, },
+  'pixbuf-scale-two-step': { 'suites': ['ops'], 'skip': true, },
   'pixbuf-short-gif-write': {
     'suites': ['format'],
     'skip': not enabled_loaders.contains('gif'),
+    'skip': true,
   },
   'pixbuf-gif-circular-table': {
     'suites': ['format'],
     'skip': not enabled_loaders.contains('gif'),
+    'skip': true,
   },
-  'pixbuf-save': { 'suites': ['io'] },
-  'pixbuf-readonly-to-mutable': { 'suites': ['conform'], },
+  'pixbuf-save': { 'suites': ['io'], 'skip': true, },
+  'pixbuf-readonly-to-mutable': { 'suites': ['conform'], 'skip': true, },
   'pixbuf-composite': {
     'suites': ['ops'],
     'skip': not enabled_loaders.contains('png'),
+    'skip': true,
   },
-  'pixbuf-area-updated': { 'suites': ['slow'], },
+  'pixbuf-area-updated': { 'suites': ['slow'], 'skip': true, },
 }
 
 test_data = [
