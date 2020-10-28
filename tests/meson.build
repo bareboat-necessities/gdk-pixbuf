@@ -124,31 +124,6 @@ installed_tests = {
 }
 
 test_data = [
-  'test-image.png',
-  'test-animation.gif',
-  '1_partyanimsm2.gif',
-  'test-animation.ani',
-  'icc-profile.jpeg',
-  'icc-profile.png',
-  'dpi.jpeg',
-  'dpi.png',
-  'dpi.tiff',
-  'premature-end.png',
-  'premature-end.jpg',
-  'bug143608-comment.jpg',
-  'bug725582-testrotate.jpg',
-  'bug725582-testrotate.png',
-  'bug753605-atsize.jpg',
-  'cve-2015-4491.bmp',
-  'large.png',
-  'large.jpg',
-  'bug775218.jpg',
-  'test-image.pixdata',
-  'test-image-rle.pixdata',
-  'bug775693.pixdata',
-  'bug775229.pixdata',
-  'aero.gif',
-  'circular-table.gif',
 ]
 
 installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', meson.project_name())
