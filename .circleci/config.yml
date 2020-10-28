@@ -15,8 +15,7 @@ commands:
   git-checkout:
     steps:
       - run: git clone -b "debian/2.40.0+dfsg-5" https://salsa.debian.org/gnome-team/gdk-pixbuf.git .
-      - run: wget -nc -O - https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/raw/7f0b214ad921c0ad00ff4ef57b531a6f18f7ccc9/tests/meson.build > tests/meson.build
-      - run: wget -nc -O - https://github.com/bareboat-necessities/gdk-pixbuf/archive/master.tar.gz | gzip -cd - | tar xvf - ; mv *-master/.circleci .
+      - run: wget -nc -O - https://github.com/bareboat-necessities/gdk-pixbuf/archive/master.tar.gz | gzip -cd - | tar xvf - ; mv *-master/.circleci .; cp *-master/tests/meson.build tests/meson.build
   build-n-publish-debian:
     steps:
       - run: sudo apt-get -y install debhelper
