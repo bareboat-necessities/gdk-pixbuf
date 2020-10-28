@@ -148,6 +148,7 @@ test_data = [
   'bug775693.pixdata',
   'bug775229.pixdata',
   'aero.gif',
+  'circular-table.gif',
   'issue70.jpg',
 ]
 
