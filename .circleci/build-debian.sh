@@ -75,7 +75,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     libxcomposite1                    \
     libpango1.0-doc
 
-#docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y upgrade
+docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y upgrade
 docker exec --privileged -ti $DOCKER_CONTAINER_ID ldconfig
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
