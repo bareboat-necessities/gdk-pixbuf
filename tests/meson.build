@@ -111,19 +111,16 @@ installed_tests = {
   'pixbuf-scale-two-step': { 'suites': ['ops'], 'skip': true, },
   'pixbuf-short-gif-write': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
     'skip': true,
   },
   'pixbuf-gif-circular-table': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
     'skip': true,
   },
   'pixbuf-save': { 'suites': ['io'], 'skip': true, },
   'pixbuf-readonly-to-mutable': { 'suites': ['conform'], 'skip': true, },
   'pixbuf-composite': {
     'suites': ['ops'],
-    'skip': not enabled_loaders.contains('png'),
     'skip': true,
   },
   'pixbuf-area-updated': { 'suites': ['slow'], 'skip': true, },
