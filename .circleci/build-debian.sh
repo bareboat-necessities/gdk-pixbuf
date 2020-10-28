@@ -37,7 +37,6 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
     gobject-introspection             \
     libcolord-dev                     \
     libcups2-dev                      \
-    libgdk-pixbuf2.0-dev              \
     libgirepository1.0-dev            \
     libjson-glib-dev                  \
     librest-dev                       \
