@@ -7,10 +7,6 @@ executors:
     machine:
       enabled: true
       image: ubuntu-1604:202010-01
-  boot-linux2:
-    machine:
-      enabled: true
-      image: ubuntu-2004:202010-01
 commands:
   git-checkout:
     steps:
