@@ -80,7 +80,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install build-essen
 docker exec --privileged -ti $DOCKER_CONTAINER_ID ldconfig
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
-    "mkdir PNG; cd PNG; wget http://deb.debian.org/debian/pool/main/libp/libpng1.6/libpng1.6_1.6.37.orig.tar.gz; gzip -cd < libpng1.6_1.6.37.orig.tar.gz | tar xvf -; cd libpng-1.6.37/; ./configure --prefix=/usr; make -j2; make install; ldconfig; cd ../../"
+    "mkdir PNG; cd PNG; wget http://deb.debian.org/debian/pool/main/libp/libpng1.6/libpng1.6_1.6.37.orig.tar.gz; gzip -cd < libpng1.6_1.6.37.orig.tar.gz | tar xvf -; cd libpng-1.6.37/; wget http://deb.debian.org/debian/pool/main/libp/libpng1.6/libpng1.6_1.6.37-3.debian.tar.xz; xzcat libpng1.6_1.6.37-3.debian.tar.xz | tar xvf -; dpkg-buildpackage -b -uc -us -j2; dpkg -i ../*/*.deb; cd ../../"
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j1; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
