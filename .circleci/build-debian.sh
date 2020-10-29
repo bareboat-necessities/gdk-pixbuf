@@ -86,7 +86,7 @@ docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us -j2; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist "
 
-docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec "mv PNG/*.deb dist"
+docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec "mv PNG/*.deb ci-source/dist"
 
 find dist -name \*.\*$EXT
 
